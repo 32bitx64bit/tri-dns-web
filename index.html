@@ -39,7 +39,7 @@
 
 <div class="server">
 
-  <h1>DNS server list</h1>
+  <h1 id="dns">DNS server list</h1>
   <h2 class="na">North America</h2>
 
   <article class="dns">
@@ -107,7 +107,7 @@
       <p>Navigate to the DNS settings, click on "Other DNS" </p>
       <p>Tap on DoH</p>
       <p>[Optional] Set resolver name to "tri-dns"</p>
-      <p>Add "https://tri-dns.net" to "Resolver URL"</p>
+      <p>Add "tri-dns.net/dns-query" to "Resolver URL"</p>
     </div>
     <div class="item1">
       <h2 class="dnscon">Portmaster</h2>
@@ -117,8 +117,8 @@
       <p>[Optional] Add Ipv6 as well " dot://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
       <h3>For DOH (Unrecommended protocol)</h3>
       <p>Navigate to the settings menu, and locate "DNS Servers"</p>
-      <p>Click "Add" and paste " doh://178.128.225.109?verify=tri-dns.net "</p>
-      <p>[Optional] Add Ipv6 as well " doh://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
+      <p>Click "Add" and paste " https://178.128.225.109?verify=tri-dns.net "</p>
+      <p>[Optional*] Add Ipv6 as well " https://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
     </div>
 
   </div>
@@ -148,4 +148,3 @@
     -webkit-text-fill-color: transparent;
 
   }
-</style>
