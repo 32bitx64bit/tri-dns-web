@@ -84,3 +84,58 @@
     left: 40px;
   }
 </style>
+
+<style>
+  .howto {
+    text-align: center;
+  }
+</style>
+
+
+<div class="howto">
+
+  <h1>How to configure clients.</h1>
+
+  <div class="grid">
+    <div class="item1">
+      <h2>Rethink DNS</h2>
+      <h3>For DOT</h3>
+      <p>Navigate to the DNS settings, click on "Other DNS" </p>
+      <p>Tap on DoT, then tap the ( + ) button.</p>
+      <p>[Optional] Set resolver name to "tri-dns"</p>
+      <p>Add "tls://tri-dns.net" to "Resolver URL"</p>
+      <h3>For DOH (Unrecommended protocol)</h3>
+      <p>Navigate to the DNS settings, click on "Other DNS" </p>
+      <p>Tap on DoH</p>
+      <p>[Optional] Set resolver name to "tri-dns"</p>
+      <p>Add "https://tri-dns.net" to "Resolver URL"</p>
+    </div>
+    <div class="item1">
+      <h2>Portmaster</h2>
+      <h3>For DOT</h3>
+      <p>Navigate to the settings menu, and locate "DNS Servers"</p>
+      <p>Click "Add" and paste " dot://178.128.225.109?verify=tri-dns.net "</p>
+      <p>[Optional] Add Ipv6 as well " dot://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
+      <h3>For DOH (Unrecommended protocol)</h3>
+      <p>Navigate to the settings menu, and locate "DNS Servers"</p>
+      <p>Click "Add" and paste " doh://178.128.225.109?verify=tri-dns.net "</p>
+      <p>[Optional] Add Ipv6 as well " doh://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+  .grid {
+    display: grid; 
+    column-gap: 50px;
+    gap: 50px;
+  }
+</style>
+<style>
+  .item1  {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+</style>
