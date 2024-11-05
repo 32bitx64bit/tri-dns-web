@@ -90,13 +90,107 @@
   }
 </style>
 
+<div class="whyus">
+
+<div class="wu1">
+<h2>Fast & Realiable</h2>
+<p>Tri-DNS prides itself on being a fast, and realiable DNS server</p>
+</div>
+
+<div class="wu2">
+  <h2>Private</h2>
+  <p>We pride ourselfs on not logging your DNS queries.</p>
+ <p>Privacy is a basic human right, being violated daily.</p>
+</div>
+
+<div class="wu3">
+  <h2>Easy to setup!</h2>
+  <p>We provide tutorials for easy client setup!</p>
+</div>
+
+<div class="wu4">
+  <h2>Future proof.</h2>
+  <p>Tri-DNS supports a wide range of protocols.</p>
+  <p>Notabaly DoQ, DoT, and DoH/3, providing encrypted DNS.</p>
+</div>
+
+</div>
+
+<style>
+.whyus {
+  grid-auto-columns: 400px;
+  display: grid;
+  column-gap: 50px;
+  grid-template-areas: "a a b b"
+                       "c c d d";
+  text-align: center;
+  align-items: start;
+}
+
+.wu1 {
+  grid-area: a;
+}
+
+.wu2 {
+  grid-area: b;
+}
+
+.wu3 {
+  grid-area: c;
+}
+
+.wu4 {
+  grid-area: d;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="howto">
 
   <h1>How to configure clients.</h1>
 
   <div class="grid">
-    <div class="item1">
+    <div class="client">
       <h2 class="dnscon">Rethink DNS</h2>
       <h3>For DOT</h3>
       <p>Navigate to the DNS settings, click on "Other DNS" </p>
@@ -109,7 +203,7 @@
       <p>[Optional] Set resolver name to "tri-dns"</p>
       <p>Add "tri-dns.net/dns-query" to "Resolver URL"</p>
     </div>
-    <div class="item1">
+    <div class="client">
       <h2 class="dnscon">Portmaster</h2>
       <h3>For DOT</h3>
       <p>Navigate to the settings menu, and locate "DNS Servers"</p>
@@ -134,7 +228,7 @@
   }
 </style>
 <style>
-  .item1  {
+  .client  {
     grid-row-start: 1;
     grid-row-end: 2;
   }
