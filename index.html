@@ -160,8 +160,8 @@
 
   <h1>How to configure clients.</h1>
 
-  <div class="grid">
-    <div class="client">
+  <div class="configfix">
+    <div class="su1">
       <h2 class="dnscon">Rethink DNS</h2>
       <h3>For DOT</h3>
       <p>Navigate to the DNS settings, click on "Other DNS" </p>
@@ -174,7 +174,7 @@
       <p>[Optional] Set resolver name to "tri-dns"</p>
       <p>Add "tri-dns.net/dns-query" to "Resolver URL"</p>
     </div>
-    <div class="client">
+    <div class="su2">
       <h2 class="dnscon">Portmaster</h2>
       <h3>For DOT</h3>
       <p>Navigate to the settings menu, and locate "DNS Servers"</p>
@@ -190,23 +190,6 @@
 </div>
 
 <style>
-
-  .grid {
-    display: grid; 
-    column-gap: 10px;
-    gap: 100px;
-    text-align: center;
-  }
-</style>
-
-<style>
-  .client  {
-    grid-row-start: 1;
-    grid-row-end: 2;
-  }
-</style>
-
-<style>
   .dnscon {
     background: linear-gradient(90deg, rgba(13,139,250,1) 15%, rgba(240,64,104,1) 80%);
     -webkit-background-clip: text;
@@ -214,21 +197,24 @@
     -webkit-text-fill-color: transparent;
 
   }
+</style>
 
-  <style>
+<style>
 .configfix {
   grid-auto-columns: auto;
   display: grid;
-  grid-template-areas: "1 2";
+  grid-template-areas: "a a b b";
   text-align: center;
   align-items: center;
 }
 
 .su1 {
-  grid-area: 1;
+  grid-area: a;
+  
 }
 
 .su2 {
-  grid-area: 2;
+  grid-area: b;
+}
 
 </style>
