@@ -39,31 +39,67 @@
 
 <div class="server">
 
-  <h1 id="dns">DNS server list</h1>
+<h1 class="dnstri">DNS server list</h1>
+  
+<div class="nadns">
   <h2 class="na">North America</h2>
-
-  <article class="dns">
+  <article>
     <pre><h2>IPV4 | 178.128.225.109</h2></pre>
     <pre><h2>IPV6 | 2604:a880:cad:d0::728b:9001</h2></pre>
   </article>
-  <article class="dot">
+  <article>
     <pre><h2>DOT | tri-dns.net</h2></pre>
   </article>
-  <article class="doh">
+  <article>
     <pre><h2>DOH/3 | https://tri-dns.net/dns-query</h2></pre>
   </article>
-  <article class="doq">
+  <article>
     <pre><h2>DOQ | quic://tri-dns.net</h2></pre>
   </article>
- 
+  <article><p>Hosted in Toronto, CA.</p></article>
+</div>
+
+<div class="eudns">
+  <h2>Europe</h2>
+  <article>
+    <pre><h2>IPV4 | Coming soon*</h2></pre>
+    <pre><h2>IPV6 | Coming soon*</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOT | eu.tri-dns.net</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOH/3 | https://eu.tri-dns.net/dns-query</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOQ | quic://eu.tri-dns.net</h2></pre>
+  </article>
+  </div>
+
 </div>
 
 <style>
   .server {
-    margin: auto;
-    padding: 5%;
+    grid-template-areas: "a a a a"
+                         "b b c c";
+    grid-auto-columns: auto;
     text-align: center;
+    display: grid;
+    padding-top: 50px;
   }
+
+ .dnstri {
+  grid-area: a;
+  text-align: center;
+ }
+
+ .eudns {
+  grid-area: c;
+  text-align: center;
+ }
+ .nadns {
+  grid-area: b;
+ }
   
   </style>
 
@@ -146,15 +182,6 @@
   grid-area: d;
 }
 </style>
-
-
-
-
-
-
-
-
-
 
 <div class="howto">
 
