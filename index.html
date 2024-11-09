@@ -1,5 +1,5 @@
 <head> 
-  <title>Tri-DNS, a Privacy friendly DNS resolver.</title>
+  <title>Tri-DNS</title>
   <meta charset="UTF-8"> 
   <meta name="description" content="Tri-DNS is a Privacy friendly, fast, and secure DNS resolver, with DNS-over-Quic (DoQ) support. And other protocols like DoT, DoH.">
 </head> 
@@ -51,7 +51,7 @@
 <h1 class="dnstri">DNS server list</h1>
   
 <div class="nadns">
-  <h2 class="na">North America</h2>
+  <h2 class="dnsalign">North America</h2>
   <img src="src/NA-bitmap.png">
   <article>
     <pre><h2>IPV4 | 178.128.225.109</h2></pre>
@@ -72,7 +72,8 @@
 </div>
 
 <div class="eudns">
-  <h2>Europe</h2>
+  <h2 class="dnsalign">Europe</h2>
+  <img src="src/EU-bitmap.png">
   <article>
     <pre><h2>IPV4 | 38.180.161.239</h2></pre>
     <pre><h2>IPV6 | 2a02:29b8:dd01:227::10</h2></pre>
@@ -100,7 +101,8 @@
     grid-auto-columns: auto;
     text-align: center;
     display: grid;
-    padding-top: 50px;
+    align-items: center;
+    padding-top: 10px;
   }
 
  .dnstri {
@@ -129,7 +131,7 @@
 </style>
 
 <style>
-  .na {
+  .dnsalign {
     margin: auto;
     text-align: center;
   }
@@ -259,4 +261,64 @@
   grid-area: b;
 }
 
+</style>
+
+<div class="aboutus">
+
+<h1 class="abus1">About Section</h1>
+
+<div class="abus2">
+  <h2 class="wtfweslol">Why Tri-DNS was started?</h2>
+  <p>Tri-DNS was born out of the lack of DoQ resolvers</p>
+  <p>And just because I wanted a in house DNS service,</p>
+  <p>also always need a drive to learn something new.</p>
+  <p>So this was the perfect way to trick my brain into learning HTML/CSS</p>
+</div>
+
+<div class="abus3">
+<h3>Contact information</h3>
+<h4>Email</h4>
+<a href="mailto: gavinx2031@triro.net">Contact me</a>
+
+</div>
+
+</div>
+
+<style>
+  .aboutus {
+    text-align: center;
+  display: grid;
+  grid-template-areas: "a a a a"
+                       "b b c c";
+  
+  }
+  .abus1 {
+    grid-area: a;
+  }
+
+  .abus2 {
+    grid-area: b;
+  }
+  
+  .abus3 {
+    grid-area: c;
+  }
+
+
+
+  .emailme {
+    background-color: white;
+    border-radius: 10% 25%;
+    width: 200px;
+    height: 100px;
+    text-size-adjust: auto;
+    
+  }
+
+  .wtfweslol {
+    background: linear-gradient(90deg, rgba(13,139,250,1) 15%, rgba(240,64,104,1) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 </style>
