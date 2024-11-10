@@ -1,7 +1,7 @@
 <head> 
   <title>Tri-DNS</title>
   <meta charset="UTF-8"> 
-  <meta name="description" content="Tri-DNS is a Privacy friendly, fast, and secure DNS resolver, with DNS-over-Quic (DoQ) support. And other protocols like DoT, DoH.">
+  <meta name="description" content="Tri-DNS is a Privacy friendly, fast, and secure DNS resolver, with DNS-over-Quic (DoQ) support. And other protocols like DoT, DoH/3.">
 </head> 
 <html>
   <body style="background-color: white;"></body>
@@ -52,7 +52,7 @@
   
 <div class="nadns">
   <h2 class="dnsalign">North America</h2>
-  <img src="src/NA-bitmap.png">
+  <img src="src/na.svg">
   <article>
     <pre><h2>IPV4 | 178.128.225.109</h2></pre>
     <pre><h2>IPV6 | 2604:a880:cad:d0::728b:9001</h2></pre>
@@ -73,7 +73,7 @@
 
 <div class="eudns">
   <h2 class="dnsalign">Europe</h2>
-  <img src="src/EU-bitmap.png">
+  <img src="src/eu.svg">
   <article>
     <pre><h2>IPV4 | 38.180.161.239</h2></pre>
     <pre><h2>IPV6 | 2a02:29b8:dd01:227::10</h2></pre>
@@ -113,9 +113,12 @@
  .eudns {
   grid-area: c;
   text-align: center;
+  transition: 200ms;
  }
  .nadns {
   grid-area: b;
+  transition: 200ms;
+  
  }
   
   </style>
@@ -128,6 +131,14 @@
       padding: 1%;
       text-align: center;
     }
+ .nadns:hover {
+  transform: scale(1.5);
+ }
+ 
+ .eudns:hover {
+  transform: scale(1.5);
+ }
+    
 </style>
 
 <style>
