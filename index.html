@@ -16,8 +16,6 @@
 <div class="header">
   <h1 class="h1"> A privacy friendly, no logs, secure, DNS server.</h1>
   <p class="p1">A private, and secure DNS server that supports DOQ, QOT, and DOH/3</p>
-  <p class="p1">NOTICE : DNSSEC is suspected to be a cause of DoQ, DoH, and DoH/3 failures, DNSSEC will be disabled until further notice, a bug report has been made.</p>
-
 </div>
 
 <style>
@@ -181,7 +179,8 @@
 <div class="wu4">
   <h2>Secure.</h2>
   <p>Tri-DNS supports a wide range of protocols, and DNSSEC Validation.</p>
-  <p>We support DOT, DOH/3, and DOQ, with DNSSEC Validation for security.</p>
+  <p>We support DOT, DOH/3, and DOQ, with DNSSEC* Validation for security.</p>
+  <p>DNSSEC is currently broken, usage of a unencrypted protocol is strongely disadvised</p>
 </div>
 
 </div>
@@ -274,7 +273,7 @@
   grid-template-areas: "a a b b"
                        "c c d d";
   text-align: center;
-  align-items: center;
+  align-items: stretch;
 }
 
 .su1 {
@@ -358,3 +357,17 @@
 
 
 
+<div class="disclaimer">
+  <p>Disclaimer, this site uses a in house tracking service, we do NOT log IP. Your data is not shared w/ any third parties. </p>
+
+</div>
+
+<style>
+
+  .disclaimer {
+    text-align: center;
+  color: red;
+  padding-top: 50px;
+
+  }
+</style>
