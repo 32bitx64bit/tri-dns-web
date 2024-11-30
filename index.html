@@ -243,8 +243,18 @@
       <p>Click "Add" and paste " https://178.128.225.109?verify=tri-dns.net "</p>
       <p>[Optional*] Add Ipv6 as well " https://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
     </div>
-
-  </div>
+   <div>
+    <h2 class="dnscon">Adguard Home.</h2>
+    <p>Navigate to settings, and click "DNS settings"</p>
+    <p>Set upstream DNS servers to [protocol]://tri-dns.net</p>
+    <p>Next scroll down and locate "Bootstrap DNS servers"</p>
+    <p>And add 178.128.225.109 , and if you have Ipv6, also add</p>
+    <p>2604:a880:cad:d0::728b:9001</p>
+    <p>Note if you're using EU replace the IP's with the listed server above.</p>
+    <p>You can also add EU/US as a backup by repeating steps.</p>
+    <p>Recommend protocols are QUIC, DOT, or DOH/3</p>
+    <p>Normal DOH has privacy concerns.</p>
+   </div>
 </div>
 
 <style>
@@ -261,7 +271,8 @@
 .configfix {
   grid-auto-columns: auto;
   display: grid;
-  grid-template-areas: "a a b b";
+  grid-template-areas: "a a b b"
+                       "c c d d";
   text-align: center;
   align-items: center;
 }
@@ -273,6 +284,10 @@
 
 .su2 {
   grid-area: b;
+}
+
+.su3 {
+  grid-area: c;
 }
 
 </style>
