@@ -269,24 +269,23 @@
       <h2 class="dnscon">Portmaster</h2>
       <h3>For DOT</h3>
       <p>Navigate to the settings menu, and locate "DNS Servers"</p>
-      <p>Click "Add" and paste " dot://178.128.225.109?verify=tri-dns.net "</p>
-      <p>[Optional] Add Ipv6 as well " dot://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
+      <p>Click "Add" and use this template "dot://(IP-HERE)?verify=(MATCHING-URL-LOCATION) "</p>
+      <p>[Optional] Add Ipv6 as well " dot://([iphere])?verify=(MATCHING-URL-LOCATION) "</p>
       <h3>For DOH (Unrecommended protocol)</h3>
       <p>Navigate to the settings menu, and locate "DNS Servers"</p>
-      <p>Click "Add" and paste " https://178.128.225.109?verify=tri-dns.net "</p>
-      <p>[Optional*] Add Ipv6 as well " https://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net "</p>
+      <p>Click "Add" and use this template "https://(IP-HERE)?verify=(MATCHING-URL-LOCATION) "</p>
+      <p>[Optional*] Add Ipv6 as well " https://([iphere])?verify=(MATCHING-URL-LOCATION)  "</p>
+      <p>Now make sure the IP matches with the service location, if you mismatch it'll just fail to resolve.</p>
     </div>
    <div class="su3" >
     <h2 class="dnscon">Adguard Home.</h2>
     <p>Navigate to settings, and click "DNS settings"</p>
-    <p>Set upstream DNS servers to [protocol]://tri-dns.net</p>
-    <p>Next scroll down and locate "Bootstrap DNS servers"</p>
-    <p>And add 178.128.225.109 , and if you have Ipv6, also add</p>
-    <p>2604:a880:cad:d0::728b:9001</p>
-    <p>Note if you're using EU replace the IP's with the listed server above.</p>
-    <p>You can also add EU/US as a backup by repeating steps.</p>
-    <p>Recommend protocols are QUIC, DOT, or DOH/3</p>
-    <p>Normal DOH has privacy concerns.</p>
+    <p>Set upstream server to the server you want, find servers above.</p>
+    <p>If you're unsure view this <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#upstreams" target="_blank" >here</a> for more info.</p>
+    <p>Next, if you're using encrypted DNS protocol you must add the bootstrap IP's.</p>
+    <p>Todo this scroll down until you see "Bootstrap DNS servers", then proceed to add the IP's-</p>
+    <p>of the server you choose.</p>
+
    </div>
 </div>
 
