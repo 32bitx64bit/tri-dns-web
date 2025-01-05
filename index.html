@@ -94,12 +94,34 @@
   </article>
   </div>
 
+<div class="asiadns">
+  <h2 class="dnsalign">Asia</h2>
+  <img src="src/asia.svg">
+  <article>
+    <pre><h2>IPV4 | Coming soon*.</h2></pre>
+    <pre><h2>IPV6 | Coming soon*.</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOT | asia.tri-dns.net</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOH/3 | https://asia.tri-dns.net/dns-query</h2></pre>
+  </article>
+  <article>
+    <pre><h2>DOQ | quic://asia.tri-dns.net</h2></pre>
+  </article>
+  <article>
+    <p>Hosted in ???<span></span></p>
+  </article>
+  </div>
+
 </div>
 
 <style>
   .server {
     grid-template-areas: "a a a a"
-                         "b b c c";
+                         "b b c c"
+                         "d d d d";
     grid-auto-columns: auto;
     text-align: center;
     display: grid;
@@ -123,10 +145,16 @@
   transition: 200ms;
   
  }
+
+ .asiadns {
+  grid-area: d;
+  transition: 200ms;
+  
+ }
   
   </style>
 
-  <h4 class="alpha">DoQ is now fixed. And should be safe to use. See announcements for further detail if u want.</h4>
+  <h4 class="alpha"></h4>
 
   <style>
     .alpha {
@@ -138,6 +166,10 @@
   transform: scale(1.5)}
  
  .eudns:hover {
+  transform: scale(1.5);
+ }
+
+ .asiadns:hover {
   transform: scale(1.5);
  }
     
