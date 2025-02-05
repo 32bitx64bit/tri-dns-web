@@ -39,7 +39,9 @@
 }
 
 </style>
-
+<script>
+  //Servers.
+</script>  
 <style>
 .img1 {
   margin: auto;
@@ -190,7 +192,9 @@
 
 <h1 class="howto">Why us?</h1>
 <div class="whyus">
-
+  <script>
+    //Total mess, why did I even write this.
+  </script>
 <div class="wu1">
 <h2>Fast & Realiable</h2>
 <p>Tri-DNS prides itself on being a fast, and realiable DNS server.</p>
@@ -206,9 +210,7 @@
 
 <div class="wu3">
   <h2>Easy to setup!</h2>
-  <p>We provide step by step guides for easy client setup!</p>
-  <p>Note we currently only cover Rethink, and Portmaster.</p>
-  <p>More will come in the future.</p>
+  <p>(NEW) We provide a easy to use configuration tool for clients.</p>
 </div>
 
 <div class="wu4">
@@ -218,7 +220,9 @@
 </div>
 
 </div>
-
+<script>
+  //The "why us" section. Could be better, will I fix it though? Nah.
+</script>  
 <style>
 .whyus {
   grid-auto-columns: auto;
@@ -249,44 +253,234 @@
 
 <div class="howto">
 
-  <h1>How to configure clients.</h1>
 
-  <div class="configfix">
-    <div class="su1">
-      <h2 class="dnscon">Rethink DNS</h2>
-      <h3>For DOT</h3>
-      <p>Navigate to the DNS settings, click on "Other DNS" </p>
-      <p>Tap on DoT, then tap the ( + ) button.</p>
-      <p>[Optional] Set resolver name to "tri-dns"</p>
-      <p>Add "tls://(location).tri-dns.net" to "Resolver URL"</p>
-      <h3>For DOH (Unrecommended protocol)</h3>
-      <p>Navigate to the DNS settings, click on "Other DNS" </p>
-      <p>Tap on DoH</p>
-      <p>[Optional] Set resolver name to "tri-dns"</p>
-      <p>Add "(location).tri-dns.net/dns-query" to "Resolver URL"</p>
-      <p>(For NA just use tri-dns.net)</p>
-    </div>
-    <div class="su2">
-      <h2 class="dnscon">Portmaster</h2>
-      <h3>For DOT</h3>
-      <p>Navigate to the settings menu, and locate "DNS Servers"</p>
-      <p>Click "Add" and use this template "dot://(IP-HERE)?verify=(MATCHING-URL-LOCATION) "</p>
-      <p>[Optional] Add Ipv6 as well " dot://([iphere])?verify=(MATCHING-URL-LOCATION) "</p>
-      <h3>For DOH (Unrecommended protocol)</h3>
-      <p>Navigate to the settings menu, and locate "DNS Servers"</p>
-      <p>Click "Add" and use this template "https://(IP-HERE)?verify=(MATCHING-URL-LOCATION) "</p>
-      <p>[Optional*] Add Ipv6 as well " https://([iphere])?verify=(MATCHING-URL-LOCATION)  "</p>
-      <p>Now make sure the IP matches with the service location, if you mismatch it'll just fail to resolve.</p>
-      <p>For Ipv6 the [] are needed inorder for it to work. (ipv6 only)</p>
-    </div>
-   <div class="su3" >
-    <h2 class="dnscon">Adguard Home.</h2>
-    <p>Navigate to settings, and click "DNS settings"</p>
-    <p>Set upstream server to the server you want, find servers above.</p>
-    <p>If you're unsure view this <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#upstreams" target="_blank" >here</a> for more info.</p>
-    <p>Next, if you're using encrypted DNS protocol you must add the bootstrap IP's.</p>
-    <p>Todo this scroll down until you see "Bootstrap DNS servers", then proceed to add the IP's-</p>
-    <p>of the server you choose.</p>
+      <style>
+          body {
+              margin: 20px;
+              padding: 0;
+          }
+          
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+          }
+          
+          h1 {
+              color: #333;
+          }
+          
+          .form-group {
+              margin-bottom: 20px;
+          }
+          
+          label {
+              display: block;
+              margin-bottom: 5px;
+              color: #666;
+          }
+          
+          input[type="text"], select {
+              width: 100%;
+              padding: 8px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              box-sizing: border-box;
+          }
+          
+          button {
+              background-color: #4CAF50;
+              color: white;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+          }
+          
+          button:hover {
+              background-color: #45a049;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <h1>Configuration Tool</h1>
+          <h3>Configure your client easily!</h3>
+  
+          <form id="configForm">
+              <div class="form-group">
+                  <label for="platform">Platform:</label>
+                  <select id="platform" name="platform">
+                      <option value="rethink_dns">Rethink DNS</option>
+                      <option value="portmaster">Portmaster</option>
+                      <option value="adguard_home">Adguard Home</option>
+                  </select>
+              </div>
+  
+              <!-- Hidden protocol type dropdown for Rethink DNS and Portmaster -->
+              <div id="protocolTypeContainer" style="display: none;">
+                  <div class="form-group">
+                      <label for="protocol_type">Protocol Type:</label>
+                      <select id="protocol_type" name="protocol_type">
+                          <option value="dot">DoT</option>
+                          <option value="doh">DoH</option>
+                      </select>
+                  </div>
+              </div>
+  
+              <!-- Hidden protocol type dropdown for Adguard Home -->
+              <div id="adguardProtocolTypeContainer" style="display: none;">
+                  <div class="form-group">
+                      <label for="adguard_protocol_type">AdGuard Protocol Type:</label>
+                      <select id="adguard_protocol_type" name="adguard_protocol_type">
+                          <option value="dot">DoT</option>
+                          <option value="doh3">DoH/3</option>
+                          <option value="doq">DoQ</option>
+                      </select>
+                  </div>
+              </div>
+  
+              <div class="form-group">
+                  <label for="server_location">Server Location:</label>
+                  <select id="server_location" name="server_location">
+                      <option value="north_america">North America</option>
+                      <option value="europe">Europe</option>
+                      <option value="asia">Asia</option>
+                  </select>
+              </div>
+          </form>
+  
+          <div id="output"></div>
+      </div>
+  
+      <script>
+          // Define platform-specific configuration steps
+          const outputSteps = {
+              'rethink_dns': {
+                  'north_america': {
+                      'dot': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoT then tap the (+) button\nStep 3: : Set resolver name to "tri-dns" and add \n" tls://tri-dns.net " into the resolver URL.',
+                      'doh': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoH then tap the (+) button\nStep 3: : Set resolver name to "tri-dns" and add \n" https://tri-dns.net " into the resolver URL.\n\n Note : Its recommended to use DoT rather than DoH.'
+                  },
+                  'europe': {
+                      'dot': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoT then tap the (+) button\nStep 3: : Set resolver name to "eu-tri-dns" and add \n" tls://eu.tri-dns.net " into the resolver URL.',
+                      'doh': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoH then tap the (+) button\nStep 3: : Set resolver name to "eu-tri-dns" and add \n" https://eu.tri-dns.net " into the resolver URL.\n\n Note : Its recommended to use DoT rather than DoH.'
+                  },
+                  'asia': {
+                      'dot': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoT then tap the (+) button\nStep 3: : Set resolver name to "asia-tri-dns" and add \n" tls://asia.tri-dns.net " into the resolver URL.',
+                      'doh': 'Configure Rethink DNS \n\nStep 1 : Navigate to DNS settings, then click on "Other DNS"\nStep 2 : Tap on DoH then tap the (+) button\nStep 3: : Set resolver name to "asia-tri-dns" and add \n" https://asia.tri-dns.net " into the resolver URL.\n\n Note : Its recommended to use DoT rather than DoH.'
+                  }
+              },
+              'portmaster': {
+                  'north_america': {
+                      'dot': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\ndot://178.128.225.109?verify=tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\ndot://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)',
+                      'doh': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\nhttps://178.128.225.109?verify=tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\nhttps://[2604:a880:cad:d0::728b:9001]?verify=tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)\n\n Note : Its recommended to use DoT rather than DoH.'
+                  },
+                  'europe': {
+                      'dot': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\ndot://159.100.250.108?verify=eu.tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\ndot://[2a04:c44:e00:e02d:42d:7aff:fe00:274]?verify=eu.tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)',
+                      'doh': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\nhttps://159.100.250.108?verify=eu.tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\nhttps://[2a04:c44:e00:e02d:42d:7aff:fe00:274]?verify=eu.tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)\n\n Note : Its recommended to use DoT rather than DoH.'
+                  },
+                  'asia': {
+                      'dot': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\ndot://185.111.159.59?verify=asia.tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\ndot://[2407:3640:2238:5447::1]?verify=asia.tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)',
+                      'doh': 'Configure Portmaster \n\nStep 1 :Navigate to the settings menu, and locate "DNS Servers"\nStep 2 : Click "add" and paste \n\nhttps://185.111.159.59?verify=asia.tri-dns.net \n\nStep 3 (optional) : Click add and paste \n\nhttps://[2407:3640:2238:5447::1]?verify=asia.tri-dns.net \n\n (Make sure your network supports Ipv6 before pasting the Ipv6 config.)\n\n Note : Its recommended to use DoT rather than DoH.'
+                  }
+              },
+              'adguard_home': {
+                  'north_america': {
+                      'dot': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " tls://tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 178.128.225.109\n If you have a Ipv6 supported network hit enter and add 2604:a880:cad:d0::728b:9001',
+                      'doh3': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " h3://tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 178.128.225.109\n If you have a Ipv6 supported network hit enter and add 2604:a880:cad:d0::728b:9001\n\n Note, if you want to use the less secure DNS over HTTPS/2 replace h3:// with https:// (NOT RECOMMENDED)',
+                      'doq': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " quic://tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 178.128.225.109\n If you have a Ipv6 supported network hit enter and add 2604:a880:cad:d0::728b:9001'
+                  },
+                  'europe': {
+                      'dot': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " tls://eu.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 159.100.250.108\n If you have a Ipv6 supported network hit enter and add 2a04:c44:e00:e02d:42d:7aff:fe00:274',
+                      'doh3': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " h3://eu.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 159.100.250.108\n If you have a Ipv6 supported network hit enter and add 2a04:c44:e00:e02d:42d:7aff:fe00:274\n\n Note, if you want to use the less secure DNS over HTTPS/2 replace h3:// with https:// (NOT RECOMMENDED)',
+                      'doq': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " quic://eu.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 159.100.250.108\n If you have a Ipv6 supported network hit enter and add 2a04:c44:e00:e02d:42d:7aff:fe00:274'
+                  },
+                  'asia': {
+                      'dot': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " tls://asia.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 185.111.159.59\n If you have a Ipv6 supported network hit enter and add 2407:3640:2238:5447::1',
+                      'doh3': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " h3://asia.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 185.111.159.59\n If you have a Ipv6 supported network hit enter and add 2407:3640:2238:5447::1\n\n Note, if you want to use the less secure DNS over HTTPS/2 replace h3:// with https:// (NOT RECOMMENDED)',
+                      'doq': 'Step 1 : Navigate to settings, and click "DNS settings"\nStep 2 : Add " quic://asia.tri-dns.net " into your upstream servers list.\nStep 3 : Scroll down until you see "Bootstrap DNS servers" then add 185.111.159.59\n If you have a Ipv6 supported network hit enter and add 2407:3640:2238:5447::1'
+                  }
+              }
+          };
+  
+          // Function to generate output
+          function generateOutput() {
+              const platform = document.getElementById('platform').value;
+              const serverLocation = document.getElementById('server_location').value;
+  
+              let output = '';
+              
+              if (['rethink_dns', 'portmaster'].includes(platform)) {
+                  const protocolType = document.getElementById('protocol_type').value;
+                  
+                  if (!protocolType) {
+                      alert('Please select a protocol type');
+                      return;
+                  }
+  
+                  output += outputSteps[platform][serverLocation][protocolType];
+              } else if (platform === 'adguard_home') {
+                  const adguardProtocolType = document.getElementById('adguard_protocol_type').value;
+                  
+                  if (!adguardProtocolType) {
+                      alert('Please select an AdGuard protocol type');
+                      return;
+                  }
+  
+                  output += outputSteps[platform][serverLocation][adguardProtocolType];
+              } else {
+                  output += outputSteps[platform][serverLocation];
+              }
+              
+              const finalOutput = `Configuration Output:
+  
+  Platform: ${platform}
+  Server Location: ${serverLocation}
+  
+  ${output}`;
+  
+              document.getElementById('output').innerHTML = `<pre>${finalOutput}</pre>`;
+          }
+  
+          // Show/hide protocol type dropdowns when page loads
+          if (!['rethink_dns', 'portmaster'].includes(document.getElementById('platform').value)) {
+              document.getElementById('protocolTypeContainer').style.display = 'none';
+          } else {
+              document.getElementById('protocolTypeContainer').style.display = 'block';
+          }
+  
+          if (document.getElementById('platform').value !== 'adguard_home') {
+              document.getElementById('adguardProtocolTypeContainer').style.display = 'none';
+          } else {
+              document.getElementById('adguardProtocolTypeContainer').style.display = 'block';
+          }
+  
+          // Show/hide protocol type dropdowns when platform selection changes
+          document.getElementById('platform').addEventListener('change', function() {
+              if (!['rethink_dns', 'portmaster'].includes(this.value)) {
+                  document.getElementById('protocolTypeContainer').style.display = 'none';
+              } else {
+                  document.getElementById('protocolTypeContainer').style.display = 'block';
+              }
+              
+              if (this.value !== 'adguard_home') {
+                  document.getElementById('adguardProtocolTypeContainer').style.display = 'none';
+              } else {
+                  document.getElementById('adguardProtocolTypeContainer').style.display = 'block';
+              }
+              generateOutput();
+          });
+  
+          // Generate output when protocol type selection changes
+          document.getElementById('protocol_type').addEventListener('change', generateOutput);
+          document.getElementById('adguard_protocol_type').addEventListener('change', generateOutput);
+  
+          // Generate output when server location selection changes
+          document.getElementById('server_location').addEventListener('change', generateOutput);
+  
+          // Generate output when page loads
+          generateOutput();
+      </script>
+  </body>
 
    </div>
 </div>
@@ -300,7 +494,9 @@
 
   }
 </style>
-
+<script>
+  //Jank. Also this section is about the CONFIG.
+</script>  
 <style>
 .configfix {
   grid-auto-columns: auto;
@@ -326,6 +522,9 @@
 
 </style>
 
+<script>
+  //The about us section. Needs improvements.
+</script>  
 <div class="aboutus">
 
 <h1 class="abus1">About Section</h1>
@@ -390,7 +589,9 @@
   }
 </style>
 
-
+<script>
+  //IGNORE THIS!!!! NOTHING GOING ON HERE LALALALA.
+</script>  
 
 <div class="disclaimer">
   <p>Disclaimer, this site uses a in house tracking service, we do NOT log IP. Your data is not shared w/ any third parties.</p>
